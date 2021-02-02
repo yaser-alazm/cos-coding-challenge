@@ -1,0 +1,37 @@
+<div class="auctions-list">
+  <mat-card 
+    class="card" 
+    *ngFor="let item of (auctions$ | async); index as i; trackBy: trackById">
+    <img 
+      mat-card-image 
+      [src]="item.associatedVehicle?.vehicleImages[0]?.url"
+      [alt]="item.label"
+    >
+    <mat-card-content>
+      <h2>{{item.label}}</h2>
+      <ul>
+        <li>
+          Timeleft: {{item.endingTime | timeleft | date:"HH'h':mm'm':ss's'"}}
+        </li>
+        <li>
+          EZ (Erstzulassung): {{item.associatedVehicle?.ez}}
+        </li>
+        <li>
+          Mileage (Km): {{item.associatedVehicle?.mileageInKm}}
+        </li>
+        <li>
+          Transmission: {{item.associatedVehicle?.transmission}}
+        </li>
+        <li>
+          Fuel Type: {{item.associatedVehicle?.fuelType}}
+        </li>
+        <li>
+          Current Highest Bid: {{item.currentHighestBidValue | currency:'EUR'}}
+        </li>
+        <li>
+          You are the highest bidder: {{item.amIHighestBidder}}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,21 @@
+.card {
+    max-width: 250px;
+    margin: .5rem;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        line-height: 20px;
+    }
+}
+
+.auctions-list {
+    background-color: #f3f4f6;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+}
