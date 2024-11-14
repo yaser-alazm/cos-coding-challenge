@@ -1,0 +1,31 @@
+<form class="login-form" [formGroup]="loginForm">
+  <h2 class="title">Login</h2>
+
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username" (change)="resetError()">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password" (change)="resetError()">
+  </mat-form-field>
+
+  <div class="footer">
+    
+    <div class="action-section">
+      <button 
+        mat-raised-button 
+        [disabled]="loginForm.invalid || loading" 
+        color="primary" 
+        class="submit-btn"
+        (click)="login(loginForm)">Sign in</button>
+      <mat-spinner *ngIf="loading" [diameter]="35"></mat-spinner>
+    </div>
+    
+    <p 
+      *ngIf="!!errorMessage"
+      class="error-message" 
+    >{{errorMessage}}</p>
+  </div>
+</form>
+
